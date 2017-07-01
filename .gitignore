@@ -1,0 +1,20 @@
+## npm packages
+**/node_modules/*
+
+## TypeScript
+**/*.d.ts
+**/*.js.map
+
+## Compiled JavaScript
+src/**/*.js
+test/**/*.js
+
+## Node
+**/npm-*.log*
+**/*.tgz
+
+## Deliverables directory
+lib
+
+## Code coverage
+coverage

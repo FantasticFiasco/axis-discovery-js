@@ -1,0 +1,28 @@
+language: node_js
+
+node_js:
+  - "node"  # Current - Latest features
+  - "7"
+  - "6"     # LTS - Recommended for most users
+  - "5"
+
+matrix:
+  fast_finish: true
+
+before_install:
+  - yarn global add greenkeeper-lockfile@1
+
+install:
+  - yarn install
+
+before_script:
+  - greenkeeper-lockfile-update
+
+script:
+  - echo -e "$(curl --silent https://raw.githubusercontent.com/FantasticFiasco/logo/master/logo.ansi)"
+  - if [ "$TRAVIS_NODE_VERSION" == "node" ]; then yarn run coverage:publish; fi
+  - if [ "$TRAVIS_NODE_VERSION" != "node" ]; then yarn run test; fi
+  - yarn run lint
+
+after_script:
+  - greenkeeper-lockfile-upload
