@@ -20,10 +20,10 @@ export class SsdpDiscovery implements IDiscovery {
     }
 
     public onHello(callback: (device: Device) => void) {
-        throw new Error('Method not implemented.' + callback);
+        this.discovery.onHello(callback);
     }
 
     public onGoodbye(callback: (device: Device) => void) {
-        throw new Error('Method not implemented.' + callback);
+        this.discovery.onGoodbye(callback);
     }
 }

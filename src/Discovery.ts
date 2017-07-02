@@ -1,3 +1,5 @@
+import * as events from 'events';
+
 import { Device } from './';
 import { IDiscovery } from './shared/IDiscovery';
 import { SsdpDiscovery } from './ssdp/SsdpDiscovery';
@@ -8,6 +10,7 @@ import { SsdpDiscovery } from './ssdp/SsdpDiscovery';
 export class Discovery {
 
     private readonly discoveries = new Array<IDiscovery>();
+    private readonly eventEmitter = new events.EventEmitter();
 
     /**
      * Initializes a new instance of the class.
@@ -47,7 +50,7 @@ export class Discovery {
      * Register a callback that is invoked when a device is found on the network.
      */
     public onHello(callback: (device: Device) => void) {
-        throw new Error('Not implemented' + callback);
+        this.eventEmitter.on('hello', (device: Device) => callback(device));
     }
 
     /**
@@ -55,6 +58,6 @@ export class Discovery {
      * network.
      */
     public onGoodbye(callback: (device: Device) => void) {
-        throw new Error('Not implemented' + callback);
+        this.eventEmitter.on('goodbye', (device: Device) => callback(device));
     }
 }
