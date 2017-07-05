@@ -16,11 +16,12 @@ export class Discovery {
      * Initializes a new instance of the class.
      */
     constructor() {
-        this.discoveries.push(new SsdpDiscovery());
+        this.initializeDiscovery(new SsdpDiscovery());
     }
 
     /**
-     * Start listen for device advertisements on all network interface addresses.
+     * Start listen for device advertisements on all network interface
+     * addresses.
      */
     public async start(): Promise<void> {
         for (const discovery of this.discoveries) {
@@ -47,17 +48,24 @@ export class Discovery {
     }
 
     /**
-     * Register a callback that is invoked when a device is found on the network.
+     * Register a callback that is invoked when a device is found on the
+     * network.
      */
     public onHello(callback: (device: Device) => void) {
         this.eventEmitter.on('hello', (device: Device) => callback(device));
     }
 
     /**
-     * Register a callback that is invoked when a device intentionally is disconnecting from the
-     * network.
+     * Register a callback that is invoked when a device intentionally is
+     * disconnecting from the network.
      */
     public onGoodbye(callback: (device: Device) => void) {
         this.eventEmitter.on('goodbye', (device: Device) => callback(device));
+    }
+
+    private initializeDiscovery(discovery: IDiscovery) {
+        this.discoveries.push(discovery);
+        discovery.onHello((device: Device) => this.eventEmitter.emit('hello', device));
+        discovery.onGoodbye((device: Device) => this.eventEmitter.emit('goodbye', device));
     }
 }
