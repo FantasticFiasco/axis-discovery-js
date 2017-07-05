@@ -26,7 +26,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index",
   "engines": {
-    "node": "">=5.0.0"
+    "node": ">=5.0.0"
   },
   "scripts": {
     "clean": "rimraf \"./+(src|test)/**/*.+(d.ts|js|js.map)\" ./lib ./coverage",
@@ -47,7 +47,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "axis-discovery-ssdp": "3.x"
+    "axis-discovery-ssdp": "4.x"
   },
   "devDependencies": {
     "@types/chai": "4.0.1",
