@@ -47,7 +47,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "axis-discovery-ssdp": "4.x" // Also exists in devDependencies since yarn doesn't install peer dependencies
+    "axis-discovery-ssdp": "4.x"
   },
   "devDependencies": {
     "@types/chai": "4.0.1",
