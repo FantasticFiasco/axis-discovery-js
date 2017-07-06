@@ -47,12 +47,13 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "axis-discovery-ssdp": "4.x"
+    "axis-discovery-ssdp": "4.x" // Also exists in devDependencies since yarn doesn't install peer dependencies
   },
   "devDependencies": {
     "@types/chai": "4.0.1",
     "@types/mocha": "2.2.41",
     "@types/node": "8.0.7",
+    "axis-discovery-ssdp": "4.x",
     "chai": "4.0.2",
     "coveralls": "2.13.1",
     "cpx": "1.5.0",

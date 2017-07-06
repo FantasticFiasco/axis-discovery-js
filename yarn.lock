@@ -151,9 +151,9 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-axis-discovery-ssdp@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/axis-discovery-ssdp/-/axis-discovery-ssdp-4.0.0.tgz#bf04653c768b8f9f9d429e368aac0328f84192eb"
+axis-discovery-ssdp@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/axis-discovery-ssdp/-/axis-discovery-ssdp-4.0.1.tgz#b637004bf8804b2a2ce4fdf9cb0aba934f2c49cc"
   dependencies:
     "@fantasticfiasco/expect" "1.0.0"
     debug "2.6.8"
