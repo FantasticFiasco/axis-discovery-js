@@ -26,7 +26,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index",
   "engines": {
-    "node": "">=5.0.0"
+    "node": ">=6.0.0"
   },
   "scripts": {
     "clean": "rimraf \"./+(src|test)/**/*.+(d.ts|js|js.map)\" ./lib ./coverage",
@@ -45,11 +45,15 @@
     "coverage:publish": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "prepack": "yarn run test && yarn run lint"
   },
-  "dependencies": { },
+  "dependencies": {},
+  "peerDependencies": {
+    "axis-discovery-ssdp": "4.x"
+  },
   "devDependencies": {
     "@types/chai": "4.0.1",
     "@types/mocha": "2.2.41",
     "@types/node": "8.0.7",
+    "axis-discovery-ssdp": "4.x",
     "chai": "4.0.2",
     "coveralls": "2.13.1",
     "cpx": "1.5.0",
