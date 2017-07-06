@@ -16,7 +16,7 @@ export class Discovery {
      * Initializes a new instance of the class.
      */
     constructor() {
-        this.initializeDiscovery(new SsdpDiscovery());
+        this.setup(new SsdpDiscovery());
     }
 
     /**
@@ -63,7 +63,7 @@ export class Discovery {
         this.eventEmitter.on('goodbye', (device: Device) => callback(device));
     }
 
-    private initializeDiscovery(discovery: IDiscovery) {
+    private setup(discovery: IDiscovery) {
         this.discoveries.push(discovery);
         discovery.onHello((device: Device) => this.eventEmitter.emit('hello', device));
         discovery.onGoodbye((device: Device) => this.eventEmitter.emit('goodbye', device));
