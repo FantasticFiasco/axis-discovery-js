@@ -20,10 +20,23 @@ export class SsdpDiscovery implements IDiscovery {
     }
 
     public onHello(callback: (device: Device) => void) {
-        this.discovery.onHello(callback);
+        this.discovery.onHello((device: ssdp.Device) => callback(this.mapToDevice(device)));
     }
 
     public onGoodbye(callback: (device: Device) => void) {
-        this.discovery.onGoodbye(callback);
+        this.discovery.onGoodbye((device: ssdp.Device) => callback(this.mapToDevice(device)));
+    }
+
+    private mapToDevice(device: ssdp.Device): Device {
+        return new Device(
+            device.address,
+            undefined,
+            device.port,
+            device.macAddress,
+            device.friendlyName,
+            device.modelName,
+            device.modelDescription,
+            device.modelNumber,
+            device.presentationURL);
     }
 }
