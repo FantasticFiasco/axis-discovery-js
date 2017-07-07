@@ -2,6 +2,7 @@ import * as events from 'events';
 
 import { Device } from './';
 import { BonjourDiscovery } from './bonjour/BonjourDiscovery';
+import { log } from './logging/Log';
 import { IDiscovery } from './shared/IDiscovery';
 import { SsdpDiscovery } from './ssdp/SsdpDiscovery';
 
@@ -26,6 +27,8 @@ export class Discovery {
      * addresses.
      */
     public async start(): Promise<void> {
+        log('Discovery#start');
+
         for (const discovery of this.discoveries) {
             await discovery.start();
         }
@@ -35,6 +38,8 @@ export class Discovery {
      * Stop listening for device advertisements.
      */
     public async stop(): Promise<void> {
+        log('Discovery#stop');
+
         for (const discovery of this.discoveries) {
             await discovery.stop();
         }
@@ -44,6 +49,8 @@ export class Discovery {
      * Triggers a new search for devices on the network.
      */
     public async search(): Promise<void> {
+        log('Discovery#search');
+
         for (const discovery of this.discoveries) {
             await discovery.search();
         }
