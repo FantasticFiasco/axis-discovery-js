@@ -19,10 +19,10 @@ export class DeviceCache {
         let hit = this.devices[device.macAddress];
 
         if (hit) {
-            log('DeviceCache#update - hit for #s', device.macAddress);
+            log('DeviceCache#update - hit for %s [%s]', device.address, device.macAddress);
             hit = Object.assign(hit, device);
         } else {
-            log('DeviceCache#update - miss for #s', device.macAddress);
+            log('DeviceCache#update - miss for %s [%s]', device.address, device.macAddress);
             hit = device;
         }
 
