@@ -4,7 +4,7 @@ import { Device } from './..';
 
 export class DeviceCache {
 
-    private readonly devices: { [macAddres: string]: Device } = {};
+    private readonly devices: { [macAddress: string]: Device } = {};
 
     constructor(...devices: Device[]) {
         for (const device of devices) {
@@ -13,16 +13,17 @@ export class DeviceCache {
     }
 
     public update(device: Device): Device {
-        expect.toExist(device.macAddress,  `MAC address of device with address ${device.address} is not specified`);
+        expect.toExist(device.macAddress,  `MAC address of device with address ${device.address} is expected`);
 
-        let cachedDevice = this.devices[device.macAddress];
-        if (!cachedDevice) {
-            this.devices[device.macAddress] = device;
-            return device;
+        let hit = this.devices[device.macAddress];
+
+        if (hit) {
+            hit = Object.assign(hit, device);
+        } else {
+            hit = device;
         }
 
-        cachedDevice = Object.assign(cachedDevice, device);
-        this.devices[device.macAddress] = cachedDevice;
-        return cachedDevice;
+        this.devices[device.macAddress] = hit;
+        return hit;
     }
 }
