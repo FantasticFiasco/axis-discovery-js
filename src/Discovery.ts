@@ -2,6 +2,7 @@ import * as events from 'events';
 
 import { Device } from './';
 import { BonjourDiscovery } from './bonjour/BonjourDiscovery';
+import { DeviceCache } from './caches/DeviceCache';
 import { log } from './logging/Log';
 import { IDiscovery } from './shared/IDiscovery';
 import { SsdpDiscovery } from './ssdp/SsdpDiscovery';
@@ -13,6 +14,7 @@ export class Discovery {
 
     private readonly discoveries = new Array<IDiscovery>();
     private readonly eventEmitter = new events.EventEmitter();
+    private readonly cache = new DeviceCache();
 
     /**
      * Initializes a new instance of the class.
@@ -74,7 +76,15 @@ export class Discovery {
 
     private setup(discovery: IDiscovery) {
         this.discoveries.push(discovery);
-        discovery.onHello((device: Device) => this.eventEmitter.emit('hello', device));
-        discovery.onGoodbye((device: Device) => this.eventEmitter.emit('goodbye', device));
+
+        discovery.onHello((device: Device) => {
+            device = this.cache.update(device);
+            this.eventEmitter.emit('hello', device);
+        });
+
+        discovery.onGoodbye((device: Device) => {
+            device = this.cache.update(device);
+            this.eventEmitter.emit('goodbye', device);
+        });
     }
 }

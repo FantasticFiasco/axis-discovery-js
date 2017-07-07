@@ -2,6 +2,7 @@ import * as ssdp from 'axis-discovery-ssdp';
 
 import { IDiscovery } from '../shared/IDiscovery';
 import { Device } from './..';
+import { log } from './../logging/Log';
 
 export class SsdpDiscovery implements IDiscovery {
 
@@ -20,23 +21,41 @@ export class SsdpDiscovery implements IDiscovery {
     }
 
     public onHello(callback: (device: Device) => void) {
-        this.discovery.onHello((device: ssdp.Device) => callback(this.mapToDevice(device)));
+        this.discovery.onHello((ssdpDevice: ssdp.Device) => {
+            const device = this.mapToDevice(ssdpDevice);
+            if (device) {
+                callback(device);
+            } else {
+                log('SsdpDiscovery#onHello - unable to map %o', ssdpDevice);
+            }
+        });
     }
 
     public onGoodbye(callback: (device: Device) => void) {
-        this.discovery.onGoodbye((device: ssdp.Device) => callback(this.mapToDevice(device)));
+        this.discovery.onGoodbye((ssdpDevice: ssdp.Device) => {
+            const device = this.mapToDevice(ssdpDevice);
+            if (device) {
+                callback(device);
+            } else {
+                log('SsdpDiscovery#onGoodbye - unable to map %o', ssdpDevice);
+            }
+        });
     }
 
-    private mapToDevice(device: ssdp.Device): Device {
+    private mapToDevice(ssdpDevice: ssdp.Device): Device | undefined {
+        if (!ssdpDevice.macAddress) {
+            return undefined;
+        }
+
         return new Device(
-            device.address,
+            ssdpDevice.address,
             undefined,
-            device.port,
-            device.macAddress,
-            device.friendlyName,
-            device.modelName,
-            device.modelDescription,
-            device.modelNumber,
-            device.presentationURL);
+            ssdpDevice.port,
+            ssdpDevice.macAddress,
+            ssdpDevice.friendlyName,
+            ssdpDevice.modelName,
+            ssdpDevice.modelDescription,
+            ssdpDevice.modelNumber,
+            ssdpDevice.presentationURL);
     }
 }

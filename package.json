@@ -46,6 +46,7 @@
     "prepack": "yarn run test && yarn run lint"
   },
   "dependencies": {
+    "@fantasticfiasco/expect": "1.0.0",
     "debug": "2.6.8"
   },
   "peerDependencies": {
