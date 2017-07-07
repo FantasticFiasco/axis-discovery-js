@@ -46,7 +46,7 @@
     "prepack": "yarn run test && yarn run lint"
   },
   "dependencies": {
-    "debug": "^2.6.8"
+    "debug": "2.6.8"
   },
   "peerDependencies": {
     "axis-discovery-bonjour": "0.x",
@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@types/chai": "4.0.1",
-    "@types/debug": "^0.0.29",
+    "@types/debug": "0.0.29",
     "@types/mocha": "2.2.41",
     "@types/node": "8.0.8",
     "axis-discovery-bonjour": "0.x",
