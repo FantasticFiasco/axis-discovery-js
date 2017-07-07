@@ -1,5 +1,6 @@
 import * as expect from '@fantasticfiasco/expect';
 
+import { log } from '../logging/Log';
 import { Device } from './..';
 
 export class DeviceCache {
@@ -18,8 +19,10 @@ export class DeviceCache {
         let hit = this.devices[device.macAddress];
 
         if (hit) {
+            log('DeviceCache#update - hit for #s', device.macAddress);
             hit = Object.assign(hit, device);
         } else {
+            log('DeviceCache#update - miss for #s', device.macAddress);
             hit = device;
         }
 

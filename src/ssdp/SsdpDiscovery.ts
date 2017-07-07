@@ -26,7 +26,7 @@ export class SsdpDiscovery implements IDiscovery {
             if (device) {
                 callback(device);
             } else {
-                log('SsdpDiscovery#onHello - Unable to map %o', ssdpDevice);
+                log('SsdpDiscovery#onHello - unable to map %o', ssdpDevice);
             }
         });
     }
@@ -37,7 +37,7 @@ export class SsdpDiscovery implements IDiscovery {
             if (device) {
                 callback(device);
             } else {
-                log('SsdpDiscovery#onGoodbye - Unable to map %o', ssdpDevice);
+                log('SsdpDiscovery#onGoodbye - unable to map %o', ssdpDevice);
             }
         });
     }
