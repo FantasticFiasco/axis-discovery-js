@@ -45,13 +45,16 @@
     "coverage:publish": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "prepack": "yarn run test && yarn run lint"
   },
-  "dependencies": {},
+  "dependencies": {
+    "debug": "^2.6.8"
+  },
   "peerDependencies": {
     "axis-discovery-bonjour": "0.x",
     "axis-discovery-ssdp": "4.x"
   },
   "devDependencies": {
     "@types/chai": "4.0.1",
+    "@types/debug": "^0.0.29",
     "@types/mocha": "2.2.41",
     "@types/node": "8.0.8",
     "axis-discovery-bonjour": "0.x",
