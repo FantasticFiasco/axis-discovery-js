@@ -1,6 +1,7 @@
 import * as events from 'events';
 
 import { Device } from './';
+import { BonjourDiscovery } from './bonjour/BonjourDiscovery';
 import { IDiscovery } from './shared/IDiscovery';
 import { SsdpDiscovery } from './ssdp/SsdpDiscovery';
 
@@ -16,6 +17,7 @@ export class Discovery {
      * Initializes a new instance of the class.
      */
     constructor() {
+        this.setup(new BonjourDiscovery());
         this.setup(new SsdpDiscovery());
     }
 

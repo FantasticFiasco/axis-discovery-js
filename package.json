@@ -47,12 +47,14 @@
   },
   "dependencies": {},
   "peerDependencies": {
+    "axis-discovery-bonjour": "0.x",
     "axis-discovery-ssdp": "4.x"
   },
   "devDependencies": {
     "@types/chai": "4.0.1",
     "@types/mocha": "2.2.41",
     "@types/node": "8.0.8",
+    "axis-discovery-bonjour": "0.x",
     "axis-discovery-ssdp": "4.x",
     "chai": "4.0.2",
     "coveralls": "2.13.1",
