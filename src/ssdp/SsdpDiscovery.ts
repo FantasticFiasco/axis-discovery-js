@@ -2,6 +2,7 @@ import * as ssdp from 'axis-discovery-ssdp';
 
 import { IDiscovery } from '../shared/IDiscovery';
 import { Device } from './..';
+import { log } from './../logging/Log';
 
 export class SsdpDiscovery implements IDiscovery {
 
@@ -24,6 +25,8 @@ export class SsdpDiscovery implements IDiscovery {
             const device = this.mapToDevice(ssdpDevice);
             if (device) {
                 callback(device);
+            } else {
+                log('SsdpDiscovery#onHello - Unable to map %o', ssdpDevice);
             }
         });
     }
@@ -33,6 +36,8 @@ export class SsdpDiscovery implements IDiscovery {
             const device = this.mapToDevice(ssdpDevice);
             if (device) {
                 callback(device);
+            } else {
+                log('SsdpDiscovery#onGoodbye - Unable to map %o', ssdpDevice);
             }
         });
     }
