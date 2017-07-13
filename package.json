@@ -57,7 +57,7 @@
     "@types/chai": "4.0.1",
     "@types/debug": "0.0.29",
     "@types/mocha": "2.2.41",
-    "@types/node": "8.0.11",
+    "@types/node": "8.0.12",
     "axis-discovery-bonjour": "0.x",
     "axis-discovery-ssdp": "4.x",
     "chai": "4.1.0",
