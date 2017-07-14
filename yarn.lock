@@ -159,12 +159,12 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-axis-discovery-bonjour@0.x:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/axis-discovery-bonjour/-/axis-discovery-bonjour-0.0.2.tgz#4f5364554fd94915475e4f8b9e3cf1b76cd8c52c"
+axis-discovery-bonjour@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/axis-discovery-bonjour/-/axis-discovery-bonjour-1.0.0.tgz#a1a89d5a55881bb059704eb2919e76e8c52374f5"
   dependencies:
     "@fantasticfiasco/expect" "1.0.0"
-    bonjour "3.5.0"
+    bonjour FantasticFiasco/bonjour#66851c5
     debug "2.6.8"
 
 axis-discovery-ssdp@4.x:
@@ -216,15 +216,15 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-bonjour@3.5.0:
+"bonjour@github:FantasticFiasco/bonjour#66851c5":
   version "3.5.0"
-  resolved "https://registry.yarnpkg.com/bonjour/-/bonjour-3.5.0.tgz#8e890a183d8ee9a2393b3844c691a42bcf7bc9f5"
+  resolved "https://codeload.github.com/FantasticFiasco/bonjour/tar.gz/66851c5"
   dependencies:
     array-flatten "^2.1.0"
     deep-equal "^1.0.1"
     dns-equal "^1.0.0"
     dns-txt "^2.0.2"
-    multicast-dns "^6.0.1"
+    multicast-dns FantasticFiasco/multicast-dns#1b0bb3d
     multicast-dns-service-types "^1.1.0"
 
 boom@2.x.x:
@@ -1337,9 +1337,9 @@ multicast-dns-service-types@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/multicast-dns-service-types/-/multicast-dns-service-types-1.1.0.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"
 
-multicast-dns@^6.0.1:
+multicast-dns@FantasticFiasco/multicast-dns#1b0bb3d:
   version "6.1.1"
-  resolved "https://registry.yarnpkg.com/multicast-dns/-/multicast-dns-6.1.1.tgz#6e7de86a570872ab17058adea7160bbeca814dde"
+  resolved "https://codeload.github.com/FantasticFiasco/multicast-dns/tar.gz/1b0bb3d"
   dependencies:
     dns-packet "^1.0.1"
     thunky "^0.1.0"
