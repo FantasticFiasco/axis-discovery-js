@@ -18,9 +18,9 @@
   version "2.2.41"
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-2.2.41.tgz#e27cf0817153eb9f2713b2d3f6c68f1e1c3ca608"
 
-"@types/node@8.0.12":
-  version "8.0.12"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.12.tgz#0560c3e8c9e3da0aa07d0b86e0b0a02b5fd29480"
+"@types/node@8.0.13":
+  version "8.0.13"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.13.tgz#530f0f9254209b0335bf5cc6387822594ef47093"
 
 abbrev@1, abbrev@1.0.x:
   version "1.0.9"
@@ -159,7 +159,7 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-axis-discovery-bonjour@1.0.0:
+axis-discovery-bonjour@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/axis-discovery-bonjour/-/axis-discovery-bonjour-1.0.0.tgz#a1a89d5a55881bb059704eb2919e76e8c52374f5"
   dependencies:
@@ -216,7 +216,7 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-"bonjour@github:FantasticFiasco/bonjour#66851c5":
+bonjour@FantasticFiasco/bonjour#66851c5:
   version "3.5.0"
   resolved "https://codeload.github.com/FantasticFiasco/bonjour/tar.gz/66851c5"
   dependencies:
