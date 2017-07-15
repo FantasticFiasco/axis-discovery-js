@@ -2,24 +2,46 @@ import * as bonjour from 'axis-discovery-bonjour';
 
 import { IDiscovery } from '../shared/IDiscovery';
 import { Device } from './..';
+import { log } from './../logging/Log';
 
 export class BonjourDiscovery implements IDiscovery {
 
     private readonly discovery = new bonjour.Discovery();
 
     public start(): Promise<void> {
-        this.discovery.start();
-        return Promise.resolve();
+        return new Promise((resolve, reject) => {
+            try {
+                this.discovery.start();
+                resolve();
+            } catch (error) {
+                log('BonjourDiscovery#start - unable to start discovery %o', error);
+                reject(error);
+            }
+        });
     }
 
     public stop(): Promise<void> {
-        this.discovery.stop();
-        return Promise.resolve();
+        return new Promise((resolve, reject) => {
+            try {
+                this.discovery.stop();
+                resolve();
+            } catch (error) {
+                log('BonjourDiscovery#stop - unable to stop discovery %o', error);
+                reject(error);
+            }
+        });
     }
 
     public search(): Promise<void> {
-        this.discovery.search();
-        return Promise.resolve();
+        return new Promise((resolve, reject) => {
+            try {
+                this.discovery.search();
+                resolve();
+            } catch (error) {
+                log('BonjourDiscovery#search - unable to search %o', error);
+                reject(error);
+            }
+        });
     }
 
     public onHello(callback: (device: Device) => void) {

@@ -8,16 +8,31 @@ export class SsdpDiscovery implements IDiscovery {
 
     private readonly discovery = new ssdp.Discovery();
 
-    public start(): Promise<void> {
-        return this.discovery.start();
+    public async start(): Promise<void> {
+        try {
+            await this.discovery.start();
+        } catch (error) {
+            log('SsdpDiscovery#start - unable to start discovery %o', error);
+            throw error;
+        }
     }
 
-    public stop(): Promise<void> {
-        return this.discovery.stop();
+    public async stop(): Promise<void> {
+        try {
+            await this.discovery.stop();
+        } catch (error) {
+            log('SsdpDiscovery#stop - unable to stop discovery %o', error);
+            throw error;
+        }
     }
 
-    public search(): Promise<void> {
-        return this.discovery.search();
+    public async search(): Promise<void> {
+        try {
+            await this.discovery.search();
+        } catch (error) {
+            log('SsdpDiscovery#search - unable to search %o', error);
+            throw error;
+        }
     }
 
     public onHello(callback: (device: Device) => void) {
