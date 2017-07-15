@@ -44,8 +44,12 @@ await discovery.search();
 ## Installation
 
 ```sh
+npm install axis-discovery-bonjour
+npm install axis-discovery-ssdp
 npm install axis-discovery
 ```
+
+`axis-discovery-bonjour` and `axis-discovery-ssdp` are defined as a peer-dependencies and thus have to be installed separately.
 
 ## API
 
