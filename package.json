@@ -50,7 +50,7 @@
     "debug": "2.6.8"
   },
   "peerDependencies": {
-    "axis-discovery-bonjour": "0.x",
+    "axis-discovery-bonjour": "1.x",
     "axis-discovery-ssdp": "4.x"
   },
   "devDependencies": {
@@ -58,7 +58,7 @@
     "@types/debug": "0.0.29",
     "@types/mocha": "2.2.41",
     "@types/node": "8.0.13",
-    "axis-discovery-bonjour": "^1.0.0",
+    "axis-discovery-bonjour": "1.x",
     "axis-discovery-ssdp": "4.x",
     "chai": "4.1.0",
     "coveralls": "2.13.1",
