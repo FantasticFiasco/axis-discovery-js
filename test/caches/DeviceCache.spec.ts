@@ -5,7 +5,7 @@ import {
     DEVICE_WITH_INFORMATION,
     DEVICE_WITHOUT_INFORMATION,
     DEVICE_WITHOUT_MAC_ADDRESS
-} from './DeviceMocks';
+} from './DeviceCache.mock';
 
 chai.should();
 
@@ -13,7 +13,7 @@ describe('DeviceCache', () => {
 
     describe('#update', () => {
 
-        it('should return device when cache miss', function() {
+        it('should return device when cache miss', function () {
             // Arrange
             const subject = new DeviceCache();
 
@@ -24,7 +24,7 @@ describe('DeviceCache', () => {
             actual.should.be.deep.equal(DEVICE_WITHOUT_INFORMATION);
         });
 
-        it('should return device when cache hit holds more information', function() {
+        it('should return device when cache hit holds more information', function () {
             // Arrange
             const subject = new DeviceCache(DEVICE_WITH_INFORMATION);
 
@@ -35,7 +35,7 @@ describe('DeviceCache', () => {
             actual.should.be.deep.equal(DEVICE_WITH_INFORMATION);
         });
 
-        it('should return device when cache hit holds less information', function() {
+        it('should return device when cache hit holds less information', function () {
             // Arrange
             const subject = new DeviceCache(DEVICE_WITHOUT_INFORMATION);
 
@@ -46,7 +46,7 @@ describe('DeviceCache', () => {
             actual.should.be.deep.equal(DEVICE_WITH_INFORMATION);
         });
 
-        it('should return device when cache hit holds identical information', function() {
+        it('should return device when cache hit holds identical information', function () {
             // Arrange
             const subject = new DeviceCache(DEVICE_WITHOUT_INFORMATION);
 
@@ -57,7 +57,7 @@ describe('DeviceCache', () => {
             actual.should.be.deep.equal(DEVICE_WITHOUT_INFORMATION);
         });
 
-        it('should fail when device has no MAC address', function() {
+        it('should fail when device has no MAC address', function () {
             // Arrange
             const subject = new DeviceCache();
 
