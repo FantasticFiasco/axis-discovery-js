@@ -216,7 +216,7 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-"bonjour@github:FantasticFiasco/bonjour#66851c5":
+bonjour@FantasticFiasco/bonjour#66851c5:
   version "3.5.0"
   resolved "https://codeload.github.com/FantasticFiasco/bonjour/tar.gz/66851c5"
   dependencies:
