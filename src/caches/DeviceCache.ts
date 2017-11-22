@@ -14,13 +14,13 @@ export class DeviceCache {
     }
 
     public update(device: Device): Device {
-        expect.toExist(device.macAddress,  `MAC address of device with address ${device.address} is expected`);
+        expect.toExist(device.macAddress, `MAC address of device with address ${device.address} is expected`);
 
         let hit = this.devices[device.macAddress];
 
         if (hit) {
             log('DeviceCache#update - hit for %s [%s]', device.address, device.macAddress);
-            hit = Object.assign(hit, device);
+            this.merge(device, hit);
         } else {
             log('DeviceCache#update - miss for %s [%s]', device.address, device.macAddress);
             hit = device;
@@ -28,5 +28,13 @@ export class DeviceCache {
 
         this.devices[device.macAddress] = hit;
         return hit;
+    }
+
+    private merge(source: Device, target: Device) {
+        Object.keys(source).forEach((key: string) => {
+            if (source[key] !== undefined) {
+                target[key] = source[key];
+            }
+        });
     }
 }
