@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+### Fixed
+
+- During a cache hit the properties of a device sometimes gets overwritten with the value of `undefined`
+
 ## [1.0.0] - 2017-07-16
 
 ### Added
