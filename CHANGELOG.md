@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.0.2] - 2017-11-23
+
+### Fixed
+
+- Creating package using [yarn](https://yarnpkg.com/en/) does not produce a complete package, revert back to use [npm](https://www.npmjs.com/)
+
 ## [1.0.1] - 2017-11-22
 
 ### Fixed
