@@ -18,10 +18,14 @@ export class Discovery {
 
     /**
      * Initializes a new instance of the class.
+     * @param bonjourDiscovery The Bounjour discovery implemetation. Default
+     * value is an instance of BonjourDiscovery.
+     * @param ssdpDiscovery The SSDP discovery implemetation. Default
+     * value is an instance of SsdpDiscovery.
      */
-    constructor() {
-        this.setup(new BonjourDiscovery());
-        this.setup(new SsdpDiscovery());
+    constructor(bonjourDiscovery?: BonjourDiscovery, ssdpDiscovery?: SsdpDiscovery) {
+        this.setup(bonjourDiscovery || new BonjourDiscovery());
+        this.setup(ssdpDiscovery || new SsdpDiscovery());
     }
 
     /**
