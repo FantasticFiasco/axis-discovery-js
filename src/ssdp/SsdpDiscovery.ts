@@ -6,7 +6,11 @@ import { log } from './../logging/Log';
 
 export class SsdpDiscovery implements IDiscovery {
 
-    private readonly discovery = new ssdp.Discovery();
+    private readonly discovery;
+
+    constructor(discovery?: ssdp.Discovery) {
+        this.discovery = discovery || new ssdp.Discovery();
+    }
 
     public async start(): Promise<void> {
         try {
