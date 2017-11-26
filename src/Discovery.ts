@@ -1,3 +1,5 @@
+import * as bonjour from 'axis-discovery-bonjour';
+import * as ssdp from 'axis-discovery-ssdp';
 import * as events from 'events';
 
 import { Device } from './';
@@ -19,13 +21,13 @@ export class Discovery {
     /**
      * Initializes a new instance of the class.
      * @param bonjourDiscovery The Bounjour discovery implemetation. Default
-     * value is an instance of BonjourDiscovery.
+     * value is an instance of require('axis-discovery-bonjour').Discovery.
      * @param ssdpDiscovery The SSDP discovery implemetation. Default
-     * value is an instance of SsdpDiscovery.
+     * value is an instance of require('axis-discovery-ssdp').Discovery.
      */
-    constructor(bonjourDiscovery?: BonjourDiscovery, ssdpDiscovery?: SsdpDiscovery) {
-        this.setup(bonjourDiscovery || new BonjourDiscovery());
-        this.setup(ssdpDiscovery || new SsdpDiscovery());
+    constructor(bonjourDiscovery?: bonjour.Discovery, ssdpDiscovery?: ssdp.Discovery) {
+        this.setup(new BonjourDiscovery(bonjourDiscovery || new bonjour.Discovery()));
+        this.setup(new SsdpDiscovery(ssdpDiscovery || new ssdp.Discovery()));
     }
 
     /**

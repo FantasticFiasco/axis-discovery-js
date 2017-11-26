@@ -6,7 +6,7 @@ import { log } from './../logging/Log';
 
 export class SsdpDiscovery implements IDiscovery {
 
-    private readonly discovery;
+    private readonly discovery: ssdp.Discovery;
 
     constructor(discovery?: ssdp.Discovery) {
         this.discovery = discovery || new ssdp.Discovery();

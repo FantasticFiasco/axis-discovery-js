@@ -6,7 +6,11 @@ import { log } from './../logging/Log';
 
 export class BonjourDiscovery implements IDiscovery {
 
-    private readonly discovery = new bonjour.Discovery();
+    private readonly discovery: bonjour.Discovery;
+
+    constructor(discovery?: bonjour.Discovery) {
+        this.discovery = discovery || new bonjour.Discovery();
+    }
 
     public start(): Promise<void> {
         return new Promise((resolve, reject) => {
