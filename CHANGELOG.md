@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+### Added
+
+- `Discovery.ctor` now support dependency injection, where instances of `require('axis-discovery-bonjour').Discovery` and `require('axis-discovery-ssdp').Discovery` can be specified. This enables the possibility of configuring  each individual discovery protocol.
+
 ## [1.0.2] - 2017-11-23
 
 ### Fixed
