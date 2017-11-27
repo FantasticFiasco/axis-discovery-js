@@ -3,11 +3,11 @@ import * as ssdp from 'axis-discovery-ssdp';
 import * as events from 'events';
 
 import { Device } from './';
-import { BonjourDiscovery } from './bonjour/BonjourDiscovery';
-import { DeviceCache } from './caches/DeviceCache';
-import { log } from './logging/Log';
-import { IDiscovery } from './shared/IDiscovery';
-import { SsdpDiscovery } from './ssdp/SsdpDiscovery';
+import { BonjourDiscovery } from './bonjour';
+import { DeviceCache } from './caches';
+import { log } from './logging';
+import { IDiscovery } from './shared';
+import { SsdpDiscovery } from './ssdp';
 
 /**
  * Class responsible for discovering Axis cameras on the network.

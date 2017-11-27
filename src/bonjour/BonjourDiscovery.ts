@@ -1,8 +1,8 @@
 import * as bonjour from 'axis-discovery-bonjour';
 
-import { IDiscovery } from '../shared/IDiscovery';
+import { IDiscovery } from '../shared';
 import { Device } from './..';
-import { log } from './../logging/Log';
+import { log } from './../logging';
 
 export class BonjourDiscovery implements IDiscovery {
 
