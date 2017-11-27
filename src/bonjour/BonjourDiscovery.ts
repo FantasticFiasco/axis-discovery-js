@@ -8,8 +8,8 @@ export class BonjourDiscovery implements IDiscovery {
 
     private readonly discovery: bonjour.Discovery;
 
-    constructor(discovery?: bonjour.Discovery) {
-        this.discovery = discovery || new bonjour.Discovery();
+    constructor(discovery: bonjour.Discovery) {
+        this.discovery = discovery;
     }
 
     public start(): Promise<void> {

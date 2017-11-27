@@ -8,8 +8,8 @@ export class SsdpDiscovery implements IDiscovery {
 
     private readonly discovery: ssdp.Discovery;
 
-    constructor(discovery?: ssdp.Discovery) {
-        this.discovery = discovery || new ssdp.Discovery();
+    constructor(discovery: ssdp.Discovery) {
+        this.discovery = discovery;
     }
 
     public async start(): Promise<void> {
