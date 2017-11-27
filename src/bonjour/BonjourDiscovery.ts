@@ -1,12 +1,16 @@
 import * as bonjour from 'axis-discovery-bonjour';
 
-import { IDiscovery } from '../shared/IDiscovery';
+import { IDiscovery } from '../shared';
 import { Device } from './..';
-import { log } from './../logging/Log';
+import { log } from './../logging';
 
 export class BonjourDiscovery implements IDiscovery {
 
-    private readonly discovery = new bonjour.Discovery();
+    private readonly discovery: bonjour.Discovery;
+
+    constructor(discovery: bonjour.Discovery) {
+        this.discovery = discovery;
+    }
 
     public start(): Promise<void> {
         return new Promise((resolve, reject) => {

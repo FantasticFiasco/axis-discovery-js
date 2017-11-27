@@ -1,11 +1,13 @@
+import * as bonjour from 'axis-discovery-bonjour';
+import * as ssdp from 'axis-discovery-ssdp';
 import * as events from 'events';
 
 import { Device } from './';
-import { BonjourDiscovery } from './bonjour/BonjourDiscovery';
-import { DeviceCache } from './caches/DeviceCache';
-import { log } from './logging/Log';
-import { IDiscovery } from './shared/IDiscovery';
-import { SsdpDiscovery } from './ssdp/SsdpDiscovery';
+import { BonjourDiscovery } from './bonjour';
+import { DeviceCache } from './caches';
+import { log } from './logging';
+import { IDiscovery } from './shared';
+import { SsdpDiscovery } from './ssdp';
 
 /**
  * Class responsible for discovering Axis cameras on the network.
@@ -18,10 +20,14 @@ export class Discovery {
 
     /**
      * Initializes a new instance of the class.
+     * @param bonjourDiscovery The Bounjour discovery implemetation. Default
+     * value is an instance of require('axis-discovery-bonjour').Discovery.
+     * @param ssdpDiscovery The SSDP discovery implemetation. Default
+     * value is an instance of require('axis-discovery-ssdp').Discovery.
      */
-    constructor() {
-        this.setup(new BonjourDiscovery());
-        this.setup(new SsdpDiscovery());
+    constructor(bonjourDiscovery?: bonjour.Discovery, ssdpDiscovery?: ssdp.Discovery) {
+        this.setup(new BonjourDiscovery(bonjourDiscovery || new bonjour.Discovery()));
+        this.setup(new SsdpDiscovery(ssdpDiscovery || new ssdp.Discovery()));
     }
 
     /**
