@@ -186,7 +186,7 @@ axis-discovery-bonjour@1.x:
     bonjour FantasticFiasco/bonjour#66851c5
     debug "2.6.8"
 
-axis-discovery-ssdp@5.0.0:
+axis-discovery-ssdp@5.x:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/axis-discovery-ssdp/-/axis-discovery-ssdp-5.0.0.tgz#09518ab1eae8704b27928cd0e7f0f970eae6bca3"
   dependencies:
