@@ -54,7 +54,7 @@
     "axis-discovery-ssdp": "5.x"
   },
   "devDependencies": {
-    "@types/chai": "4.1.0",
+    "@types/chai": "4.1.1",
     "@types/debug": "0.0.30",
     "@types/mocha": "2.2.46",
     "@types/node": "9.3.0",
