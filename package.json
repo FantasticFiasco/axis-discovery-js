@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@fantasticfiasco/expect": "1.0.0",
-    "debug": "3.1.0"
+    "debug": "4.0.0"
   },
   "peerDependencies": {
     "axis-discovery-bonjour": "1.x",
