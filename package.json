@@ -61,7 +61,7 @@
     "axis-discovery-bonjour": "1.0.0",
     "axis-discovery-ssdp": "5.0.0",
     "chai": "4.2.0",
-    "coveralls": "2.13.3",
+    "coveralls": "3.0.2",
     "cpx": "1.5.0",
     "istanbul": "0.4.5",
     "mocha": "5.2.0",
