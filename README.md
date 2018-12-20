@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.org/FantasticFiasco/axis-discovery.svg?branch=master)](https://travis-ci.org/FantasticFiasco/axis-discovery)
 [![Coverage Status](https://coveralls.io/repos/github/FantasticFiasco/axis-discovery/badge.svg)](https://coveralls.io/github/FantasticFiasco/axis-discovery)
 [![npm version](https://img.shields.io/npm/v/axis-discovery.svg)](https://www.npmjs.com/package/axis-discovery)
-[![Greenkeeper badge](https://badges.greenkeeper.io/FantasticFiasco/axis-discovery.svg)](https://greenkeeper.io/)
 [![dependencies Status](https://david-dm.org/FantasticFiasco/axis-discovery/status.svg)](https://david-dm.org/FantasticFiasco/axis-discovery)
 [![devDependencies Status](https://david-dm.org/FantasticFiasco/axis-discovery/dev-status.svg)](https://david-dm.org/FantasticFiasco/axis-discovery?type=dev)
 
