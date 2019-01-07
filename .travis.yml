@@ -2,19 +2,13 @@ language: node_js
 
 node_js:
   - "node"  # Current - Latest features
-  - "8"     # LTS - Recommended for most users
+  - "10"    # LTS - Recommended for most users
 
 matrix:
   fast_finish: true
 
-before_install:
-  - yarn global add greenkeeper-lockfile@1
-
 install:
   - yarn install
-
-before_script:
-  - greenkeeper-lockfile-update
 
 script:
   - echo -e "$(curl --silent https://raw.githubusercontent.com/FantasticFiasco/logo/master/logo.ansi)"
@@ -22,5 +16,11 @@ script:
   - if [ "$TRAVIS_NODE_VERSION" != "node" ]; then yarn test; fi
   - yarn lint
 
-after_script:
-  - greenkeeper-lockfile-upload
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: mattias.kindborg@gmail.com
+  api_key:
+    secure: v4vvBvFXBWsImXPJmMz2mc70y+6mju8LDwqJ7Nw8P5i6KhcbVuLuOJYE9Fn08HgnjoGVRUo18xFJeE5GyEEUcFPUZ3gZw5wWM+vnA65sj/AA1hkZKIwRKFL0Mq94tKve1Na4hUVGq7Og5Kw9YI06otjkC+blEVXjIegxJOF406atZuFclagKNIsIDmtec5zO3B3s056FgrpgoEhmKxZgNuO1Ygau2AqtOmie8eCCj43mieUYj2Ml/LA1uiYu8OUc4rX6uC4cjY1exb+GcEvbOiEp08D2BtsqE88S0zz0VWUjyXpTkUbXI6Sg1Si6bGYLwT/W6/Ymb8C7fV6JLa0YJ/L2YWaIuaRWGHY1BmjiU4VP7ez/cq7PQSNTMPwj4ostbRaXNzOmj0g9xOP4He254Qn3hI6iag7iy0KxjAefjbTyubSTkqCiijc2Rupnu7d/bclkfRe5KCJvOWCBIrzZgJS+fx3XmGEYeNnEgsEM/FNvB6y/k7UAAPGmqO7kHw/kplzYme6Y3/QIcKt4c/YJR+vG+PGLmuk29mfCFVZXpYg/V4QrwdVHOHZ1L9hYS+6Sx1vfqEiNs/19oKdzkQP4E8UZCuy+vV1DCkSTNWgDAysI47QCNKLlQ5M0Qc1hR4PHTmnA0pL4e55g5ldhH3M1QvY+HLkxIilGWdyiQ8aVYH0=
+  on:
+    tags: true
