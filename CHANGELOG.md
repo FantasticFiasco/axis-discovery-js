@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.1.2] - 2019-03-10
+
 ### :policeman: Security
 
 - Security vulnerability in transient dependency `sshpk`
