@@ -18,10 +18,10 @@
   version "5.2.6"
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-5.2.6.tgz#b8622d50557dd155e9f2f634b7d68fd38de5e94b"
 
-"@types/node@10.12.30":
-  version "10.12.30"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.30.tgz#4c2b4f0015f214f8158a347350481322b3b29b2f"
-  integrity sha512-nsqTN6zUcm9xtdJiM9OvOJ5EF0kOI8f1Zuug27O/rgtxCRJHGqncSWfCMZUP852dCKPsDsYXGvBhxfRjDBkF5Q==
+"@types/node@10.14.0":
+  version "10.14.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.0.tgz#1c297530428c6f4e0a0a3222f5b44745669aa9f7"
+  integrity sha512-1UhSMMDix7bVdUeqtZERQQyJr3QuFoN5X5APtpIooGkumE3crPaeq7UgFeJNjGD8yCQ8od8PzRkgptR5+x327Q==
 
 abbrev@1, abbrev@1.0.x:
   version "1.0.9"
@@ -197,8 +197,9 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-"bonjour@github:FantasticFiasco/bonjour#66851c5":
+bonjour@FantasticFiasco/bonjour#66851c5:
   version "3.5.0"
+  uid "66851c5eb0360fc9297eef40d18196487a71c48a"
   resolved "https://codeload.github.com/FantasticFiasco/bonjour/tar.gz/66851c5eb0360fc9297eef40d18196487a71c48a"
   dependencies:
     array-flatten "^2.1.0"
