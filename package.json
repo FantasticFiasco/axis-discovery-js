@@ -67,7 +67,7 @@
     "remap-istanbul": "0.13.0",
     "rimraf": "2.6.3",
     "tslint": "5.15.0",
-    "typescript": "3.4.2"
+    "typescript": "3.4.3"
   },
   "resolutions": {
     "sshpk": ">=1.13.2"
