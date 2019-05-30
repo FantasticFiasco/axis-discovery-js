@@ -55,7 +55,7 @@
   "devDependencies": {
     "@types/chai": "4.1.7",
     "@types/debug": "4.1.4",
-    "@types/mocha": "5.2.6",
+    "@types/mocha": "5.2.7",
     "@types/node": "10.14.7",
     "axis-discovery-bonjour": "1.0.3",
     "axis-discovery-ssdp": "5.0.2",
