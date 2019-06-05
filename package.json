@@ -61,7 +61,7 @@
     "axis-discovery-ssdp": "5.0.2",
     "chai": "4.2.0",
     "copyfiles": "2.1.0",
-    "coveralls": "3.0.3",
+    "coveralls": "3.0.4",
     "istanbul": "0.4.5",
     "mocha": "6.1.4",
     "remap-istanbul": "0.13.0",
