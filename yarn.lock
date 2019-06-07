@@ -147,13 +147,13 @@ aws4@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
 
-axis-discovery-bonjour@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/axis-discovery-bonjour/-/axis-discovery-bonjour-1.0.3.tgz#1aa50dd1e10db2440d950a257e66c3935d6b7710"
-  integrity sha512-qE8oLAlnKZU3t7jAO3/sm3uel0Lk0R8esxU0KB0Wc2MA2Nx3SfTlKZa9vMKy0w1A6EXVrWQCbGmyVr9Lnl3iMw==
+axis-discovery-bonjour@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/axis-discovery-bonjour/-/axis-discovery-bonjour-1.0.4.tgz#0a1bac7abe6846a521986297b4aa09ea51dcef5a"
+  integrity sha512-1HxWF4nNEkf6FLgKw/mVcOa1NVnR5LScNuvk8V7AjG8mcnTazs7teDR2ow/XW7Ubw9gyJzOXbKTTcVydoBBbvQ==
   dependencies:
     "@fantasticfiasco/expect" "1.*"
-    bonjour FantasticFiasco/bonjour#66851c5
+    bonjour "github:FantasticFiasco/bonjour#66851c5"
     debug "4.*"
 
 axis-discovery-ssdp@5.0.2:
@@ -176,8 +176,9 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bonjour@FantasticFiasco/bonjour#66851c5:
+"bonjour@github:FantasticFiasco/bonjour#66851c5":
   version "3.5.0"
+  uid "66851c5eb0360fc9297eef40d18196487a71c48a"
   resolved "https://codeload.github.com/FantasticFiasco/bonjour/tar.gz/66851c5eb0360fc9297eef40d18196487a71c48a"
   dependencies:
     array-flatten "^2.1.0"
