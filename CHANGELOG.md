@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.1.3] - 2019-06-07
+
 ### :policeman: Security
 
 - Security vulnerability in transient dependency `handlebars`
