@@ -153,7 +153,7 @@ axis-discovery-bonjour@1.0.4:
   integrity sha512-1HxWF4nNEkf6FLgKw/mVcOa1NVnR5LScNuvk8V7AjG8mcnTazs7teDR2ow/XW7Ubw9gyJzOXbKTTcVydoBBbvQ==
   dependencies:
     "@fantasticfiasco/expect" "1.*"
-    bonjour "github:FantasticFiasco/bonjour#66851c5"
+    bonjour FantasticFiasco/bonjour#66851c5
     debug "4.*"
 
 axis-discovery-ssdp@5.0.3:
@@ -176,9 +176,8 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-"bonjour@github:FantasticFiasco/bonjour#66851c5":
+bonjour@FantasticFiasco/bonjour#66851c5:
   version "3.5.0"
-  uid "66851c5eb0360fc9297eef40d18196487a71c48a"
   resolved "https://codeload.github.com/FantasticFiasco/bonjour/tar.gz/66851c5eb0360fc9297eef40d18196487a71c48a"
   dependencies:
     array-flatten "^2.1.0"
@@ -386,13 +385,10 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
 
-diff@3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/diff/-/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
-
-diff@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
+diff@3.5.0, diff@>=3.5.0, diff@^3.2.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-4.0.1.tgz#0c667cb467ebbb5cea7f14f135cc2dba7780a8ff"
+  integrity sha512-s2+XdvhPCOF01LRQBC8hf4vhbVmI2CGS5aZnxLJlT5FtdhPCDFq80q++zK2KlrVorVDdL5BOGZ/VfLrVtYNF+Q==
 
 dns-equal@^1.0.0:
   version "1.0.0"
