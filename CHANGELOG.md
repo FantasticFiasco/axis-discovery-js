@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### :policeman: Security
 
 - Security vulnerability in transient dependency `diff`
+- Security vulnerability in transient dependency `lodash`
 
 ## [1.1.3] - 2019-06-07
 
