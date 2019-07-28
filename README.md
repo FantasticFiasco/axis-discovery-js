@@ -1,14 +1,14 @@
 # axis-discovery
 
-[![Build Status](https://travis-ci.org/FantasticFiasco/axis-discovery.svg?branch=master)](https://travis-ci.org/FantasticFiasco/axis-discovery)
-[![Coverage Status](https://coveralls.io/repos/github/FantasticFiasco/axis-discovery/badge.svg)](https://coveralls.io/github/FantasticFiasco/axis-discovery)
+[![Build Status](https://travis-ci.org/FantasticFiasco/axis-discovery-js.svg?branch=master)](https://travis-ci.org/FantasticFiasco/axis-discovery-js)
+[![Coverage Status](https://coveralls.io/repos/github/FantasticFiasco/axis-discovery-js/badge.svg)](https://coveralls.io/github/FantasticFiasco/axis-discovery-js)
 [![npm version](https://img.shields.io/npm/v/axis-discovery.svg)](https://www.npmjs.com/package/axis-discovery)
-[![dependencies Status](https://david-dm.org/FantasticFiasco/axis-discovery/status.svg)](https://david-dm.org/FantasticFiasco/axis-discovery)
-[![devDependencies Status](https://david-dm.org/FantasticFiasco/axis-discovery/dev-status.svg)](https://david-dm.org/FantasticFiasco/axis-discovery?type=dev)
+[![dependencies Status](https://david-dm.org/FantasticFiasco/axis-discovery-js/status.svg)](https://david-dm.org/FantasticFiasco/axis-discovery-js)
+[![devDependencies Status](https://david-dm.org/FantasticFiasco/axis-discovery-js/dev-status.svg)](https://david-dm.org/FantasticFiasco/axis-discovery-js?type=dev)
 
 A Node.js client library written in TypeScript capable of searching for Axis Communication cameras using Bonjour and SSDP (UPnP).
 
-It utilizes [axis-discovery-bonjour](https://github.com/FantasticFiasco/axis-discovery-bonjour) and [axis-discovery-ssdp](https://github.com/FantasticFiasco/axis-discovery-ssdp) for discovery, and aggregates the information provided by the protocols into a convenient way for clients to find cameras on the network.
+It utilizes [axis-discovery-bonjour](https://github.com/FantasticFiasco/axis-discovery-bonjour-js) and [axis-discovery-ssdp](https://github.com/FantasticFiasco/axis-discovery-ssdp-js) for discovery, and aggregates the information provided by the protocols into a convenient way for clients to find cameras on the network.
 
 ## Table of contents
 

@@ -1,2 +1,2 @@
-issue: https://github.com/FantasticFiasco/axis-discovery/issues/{0} #(\d+)
-tag: https://github.com/FantasticFiasco/axis-discovery/releases/tag/{0} (v\d+\.\d+\.\d+)
+issue: https://github.com/FantasticFiasco/axis-discovery-js/issues/{0} #(\d+)
+tag: https://github.com/FantasticFiasco/axis-discovery-js/releases/tag/{0} (v\d+\.\d+\.\d+)
