@@ -22,9 +22,10 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@fantasticfiasco/expect/-/expect-1.0.0.tgz#fc700aee52122b3bc62a95b8ab95ffa4b65967ba"
 
-"@types/chai@4.1.7":
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.7.tgz#1b8e33b61a8c09cbe1f85133071baa0dbf9fa71a"
+"@types/chai@4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.2.0.tgz#2478260021408dec32c123a7cad3414beb811a07"
+  integrity sha512-zw8UvoBEImn392tLjxoavuonblX/4Yb9ha4KBU10FirCfwgzhKO0dvyJSF9ByxV1xK1r2AgnAi/tvQaLgxQqxA==
 
 "@types/debug@4.1.5":
   version "4.1.5"
