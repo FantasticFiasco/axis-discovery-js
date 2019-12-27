@@ -145,10 +145,10 @@ aws4@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
 
-axis-discovery-bonjour@1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/axis-discovery-bonjour/-/axis-discovery-bonjour-1.0.6.tgz#66a19e58cfab9d1b6bd3bef41a7bec1b3a00482f"
-  integrity sha512-r5zqIGkvOnZVrAEW5lFpT+Zv4IwJH4/ezyjdo7nJzzMHZMIoBZc9mqBsvWM5L5Sd7rI5Ert+6W0ZVLfxW8e72g==
+axis-discovery-bonjour@1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/axis-discovery-bonjour/-/axis-discovery-bonjour-1.0.7.tgz#b34a335c1ea941c85af8c7705d374a0e728921d3"
+  integrity sha512-QIlNmgX7ufQljYbZiD8FeO9wi5Wrhwdgz7v+YfEP9MjLmy27pbP6MQX8WRilY68yze1z3yszAL5MqO3FFZlSFQ==
   dependencies:
     "@fantasticfiasco/expect" "1.*"
     bonjour "github:FantasticFiasco-Forks/bonjour#66851c5"
