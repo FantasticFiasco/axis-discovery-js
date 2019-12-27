@@ -58,7 +58,7 @@
     "@types/mocha": "5.2.7",
     "@types/node": "13.1.1",
     "axis-discovery-bonjour": "1.0.7",
-    "axis-discovery-ssdp": "5.0.4",
+    "axis-discovery-ssdp": "5.0.5",
     "chai": "4.2.0",
     "copyfiles": "2.1.1",
     "coveralls": "3.0.9",

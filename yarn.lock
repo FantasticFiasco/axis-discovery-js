@@ -154,10 +154,10 @@ axis-discovery-bonjour@1.0.7:
     bonjour "github:FantasticFiasco-Forks/bonjour#66851c5"
     debug "4.*"
 
-axis-discovery-ssdp@5.0.4:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/axis-discovery-ssdp/-/axis-discovery-ssdp-5.0.4.tgz#ab6b072ab6c67228841d1625146790b262bf262c"
-  integrity sha512-X9PKwIIo1w6zrO9sQBk/Tnpz9Gv+mA2yC5VNEApZmNJQtIctEf8r7yNQn/A7C2yg12w6FFP1lkibfew1IPzF6A==
+axis-discovery-ssdp@5.0.5:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/axis-discovery-ssdp/-/axis-discovery-ssdp-5.0.5.tgz#0b8b4063bf0b513e51b3aa31baa5279bee83b9f2"
+  integrity sha512-uHrt37ga8SztJ2l4DEJovzKNgXYVqo3KOl4IwxTDxVxlCAhxONXAFsjqiyBRGPIm6zzYRO5/VDldFuVn6SmIhg==
   dependencies:
     "@fantasticfiasco/expect" "1.*"
     debug "4.*"
