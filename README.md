@@ -58,7 +58,7 @@ The following NPM packages have been created to provide a smooth experience with
     - [axis-discovery-bonjour](https://github.com/FantasticFiasco/axis-discovery-bonjour-js) - A Node.js Bonjour client library written in TypeScript capable of searching for Axis Communication cameras.
     - [axis-discovery-ssdp](https://github.com/FantasticFiasco/axis-discovery-ssdp-js) - A Node.js SSDP (UPnP) client library written in TypeScript capable of searching for Axis Communication cameras.
 - [axis-configuration](https://github.com/FantasticFiasco/axis-configuration-js) - A Node.js library written in TypeScript capable of configuring Axis Communication cameras.
-
+- [axis-maintenance](https://github.com/FantasticFiasco/axis-maintenance-js) - A Node.js library written in TypeScript capable of running maintenance operations on cameras from Axis Communication.
 
 ## API
 
