@@ -153,14 +153,20 @@ aws4@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
 
-axis-discovery-bonjour@1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/axis-discovery-bonjour/-/axis-discovery-bonjour-1.0.7.tgz#b34a335c1ea941c85af8c7705d374a0e728921d3"
-  integrity sha512-QIlNmgX7ufQljYbZiD8FeO9wi5Wrhwdgz7v+YfEP9MjLmy27pbP6MQX8WRilY68yze1z3yszAL5MqO3FFZlSFQ==
+axis-discovery-bonjour@1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/axis-discovery-bonjour/-/axis-discovery-bonjour-1.0.8.tgz#c8f449e5fffefb5d53ebab2a070c106d2b8181da"
+  integrity sha512-yoSFF6rtVxKDSQ4yCi82ednj4XtrWppvybyW46ip7rXE9DscaJ0R8uDTGCp6YOVHIvzTpBnU/tcWa8vg14t4YQ==
   dependencies:
     "@fantasticfiasco/expect" "1.*"
-    bonjour FantasticFiasco-Forks/bonjour#66851c5
+    array-flatten "^2.1.0"
     debug "4.*"
+    deep-equal "^1.0.1"
+    dns-equal "^1.0.0"
+    dns-packet "^1.0.1"
+    dns-txt "^2.0.2"
+    multicast-dns-service-types "^1.1.0"
+    thunky "^0.1.0"
 
 axis-discovery-ssdp@5.0.6:
   version "5.0.6"
@@ -186,17 +192,6 @@ binary-extensions@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.0.0.tgz#23c0df14f6a88077f5f986c0d167ec03c3d5537c"
   integrity sha512-Phlt0plgpIIBOGTT/ehfFnbNlfsDEiqmzE2KRXoX1bLIlir4X/MR+zSyBEkL05ffWgnRSf/DXv+WrUAVr93/ow==
-
-bonjour@FantasticFiasco-Forks/bonjour#66851c5:
-  version "3.5.0"
-  resolved "https://codeload.github.com/FantasticFiasco-Forks/bonjour/tar.gz/66851c5eb0360fc9297eef40d18196487a71c48a"
-  dependencies:
-    array-flatten "^2.1.0"
-    deep-equal "^1.0.1"
-    dns-equal "^1.0.0"
-    dns-txt "^2.0.2"
-    multicast-dns FantasticFiasco/multicast-dns#1b0bb3d
-    multicast-dns-service-types "^1.1.0"
 
 brace-expansion@^1.1.7:
   version "1.1.8"
@@ -1003,13 +998,6 @@ ms@2.1.1, ms@^2.1.1:
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/multicast-dns-service-types/-/multicast-dns-service-types-1.1.0.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"
-
-multicast-dns@FantasticFiasco/multicast-dns#1b0bb3d:
-  version "6.1.1"
-  resolved "https://codeload.github.com/FantasticFiasco/multicast-dns/tar.gz/1b0bb3d"
-  dependencies:
-    dns-packet "^1.0.1"
-    thunky "^0.1.0"
 
 neo-async@^2.6.0:
   version "2.6.1"
