@@ -1,5 +1,3 @@
-import * as chai from 'chai';
-
 import { DeviceCache } from './../../src/caches/DeviceCache';
 import {
     DEVICE_WITH_INFORMATION,
@@ -7,13 +5,11 @@ import {
     DEVICE_WITHOUT_MAC_ADDRESS
 } from './DeviceCache.mock';
 
-chai.should();
-
 describe('DeviceCache', () => {
 
     describe('#update', () => {
 
-        it('should return device when cache miss', function () {
+        test('should return device when cache miss', () => {
             // Arrange
             const subject = new DeviceCache();
 
@@ -21,10 +17,10 @@ describe('DeviceCache', () => {
             const actual = subject.update(DEVICE_WITHOUT_INFORMATION);
 
             // Assert
-            actual.should.be.deep.equal(DEVICE_WITHOUT_INFORMATION);
+            expect(actual).toEqual(DEVICE_WITHOUT_INFORMATION);
         });
 
-        it('should return device when cache hit holds more information', function () {
+        test('should return device when cache hit holds more information', () => {
             // Arrange
             const subject = new DeviceCache(DEVICE_WITH_INFORMATION);
 
@@ -32,10 +28,10 @@ describe('DeviceCache', () => {
             const actual = subject.update(DEVICE_WITHOUT_INFORMATION);
 
             // Assert
-            actual.should.be.deep.equal(DEVICE_WITH_INFORMATION);
+            expect(actual).toEqual(DEVICE_WITH_INFORMATION);
         });
 
-        it('should return device when cache hit holds less information', function () {
+        test('should return device when cache hit holds less information', () => {
             // Arrange
             const subject = new DeviceCache(DEVICE_WITHOUT_INFORMATION);
 
@@ -43,10 +39,10 @@ describe('DeviceCache', () => {
             const actual = subject.update(DEVICE_WITH_INFORMATION);
 
             // Assert
-            actual.should.be.deep.equal(DEVICE_WITH_INFORMATION);
+            expect(actual).toEqual(DEVICE_WITH_INFORMATION);
         });
 
-        it('should return device when cache hit holds identical information', function () {
+        test('should return device when cache hit holds identical information', () => {
             // Arrange
             const subject = new DeviceCache(DEVICE_WITHOUT_INFORMATION);
 
@@ -54,10 +50,10 @@ describe('DeviceCache', () => {
             const actual = subject.update(DEVICE_WITHOUT_INFORMATION);
 
             // Assert
-            actual.should.be.deep.equal(DEVICE_WITHOUT_INFORMATION);
+            expect(actual).toEqual(DEVICE_WITHOUT_INFORMATION);
         });
 
-        it('should fail when device has no MAC address', function () {
+        test('should fail when device has no MAC address', () => {
             // Arrange
             const subject = new DeviceCache();
 
@@ -65,7 +61,7 @@ describe('DeviceCache', () => {
             const fn = () => subject.update(DEVICE_WITHOUT_MAC_ADDRESS);
 
             // Assert
-            fn.should.throw();
+            expect(fn).toThrowError();
         });
     });
 });
