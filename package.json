@@ -31,13 +31,13 @@
   "scripts": {
     "clean": "rimraf \"./+(src|test)/**/*.+(d.ts|js|js.map)\" ./lib ./coverage",
     "prebuild": "yarn clean",
-    "build": "tsc",
-    "postbuild": "copyfiles --up 1 \"./src/**/*.{d.ts,js}\" ./lib/",
+    "build": "tsc -b",
     "prestart": "yarn build",
     "start": "node ./src/server.js",
     "test": "jest",
     "lint": "tslint \"./src/**/*.ts\" --exclude \"./**/*.d.ts\"",
-    "coverage": "jest --coverage && coveralls < coverage/lcov.info"
+    "coverage": "jest --coverage && coveralls < coverage/lcov.info",
+    "prepack": "yarn build"
   },
   "dependencies": {
     "@fantasticfiasco/expect": "1.*",
@@ -53,7 +53,6 @@
     "@types/node": "14.0.1",
     "axis-discovery-bonjour": "1.0.8",
     "axis-discovery-ssdp": "5.0.6",
-    "copyfiles": "2.2.0",
     "coveralls": "3.1.0",
     "jest": "26.0.1",
     "rimraf": "3.0.2",
