@@ -20,7 +20,7 @@ export class DeviceCache {
 
         if (hit) {
             log('DeviceCache#update - hit for %s [%s]', device.address, device.macAddress);
-            this.merge(device, hit);
+            hit = Object.assign(hit, device);
         } else {
             log('DeviceCache#update - miss for %s [%s]', device.address, device.macAddress);
             hit = device;
@@ -28,13 +28,5 @@ export class DeviceCache {
 
         this.devices[device.macAddress] = hit;
         return hit;
-    }
-
-    private merge(source: Device, target: Device) {
-        Object.keys(source).forEach((key: string) => {
-            if (source[key] !== undefined) {
-                target[key] = source[key];
-            }
-        });
     }
 }
