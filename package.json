@@ -54,7 +54,7 @@
     "axis-discovery-bonjour": "1.0.8",
     "axis-discovery-ssdp": "5.0.6",
     "coveralls": "3.1.0",
-    "jest": "26.0.1",
+    "jest": "26.1.0",
     "rimraf": "3.0.2",
     "ts-jest": "26.1.1",
     "tslint": "6.1.2",
