@@ -821,10 +821,10 @@ aws4@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
 
-axis-discovery-bonjour@1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/axis-discovery-bonjour/-/axis-discovery-bonjour-1.0.8.tgz#c8f449e5fffefb5d53ebab2a070c106d2b8181da"
-  integrity sha512-yoSFF6rtVxKDSQ4yCi82ednj4XtrWppvybyW46ip7rXE9DscaJ0R8uDTGCp6YOVHIvzTpBnU/tcWa8vg14t4YQ==
+axis-discovery-bonjour@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/axis-discovery-bonjour/-/axis-discovery-bonjour-2.0.0.tgz#a6295e38896f2b0eb02e4a17339887a13e9d5dd8"
+  integrity sha512-pYJkMKcsk8qamheLk8qqGW5PxG1hCOKa4uyqRyOZP1zbi+sEPzSzHN3bwfJvSgPwz0odzNEEZn5oeIDr2sYYtg==
   dependencies:
     "@fantasticfiasco/expect" "1.*"
     array-flatten "^2.1.0"
