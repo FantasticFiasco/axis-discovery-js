@@ -836,10 +836,10 @@ axis-discovery-bonjour@2.0.0:
     multicast-dns-service-types "^1.1.0"
     thunky "^0.1.0"
 
-axis-discovery-ssdp@5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/axis-discovery-ssdp/-/axis-discovery-ssdp-5.0.6.tgz#8101b7ccae8341a52bbd687408ff3bfd5bf3f22b"
-  integrity sha512-ym8vAdoTuZeQW8WuTAmxz/DMxl5Sr9RdKVWVkFOoJ58Zl5T6ThgpKi+Ld2GtWYkWL+ldMX2rVxf1Cfg2wQxANA==
+axis-discovery-ssdp@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/axis-discovery-ssdp/-/axis-discovery-ssdp-6.0.0.tgz#e88e810efe4e0b0d7ffd3e5f3e5d44384dce1006"
+  integrity sha512-/u2yfnDM3+K9fYzRCeyzVxbiaSsYUD5G+Q3arlAvw5jb+hOg/ZpU+c09XI3ucWyt7Je5r2jSriMmQXGh5Us24g==
   dependencies:
     "@fantasticfiasco/expect" "1.*"
     debug "4.*"

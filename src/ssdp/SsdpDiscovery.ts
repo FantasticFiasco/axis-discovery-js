@@ -40,7 +40,7 @@ export class SsdpDiscovery implements IDiscovery {
     }
 
     public onHello(callback: (device: Device) => void) {
-        this.discovery.onHello((ssdpDevice: ssdp.Device) => {
+        this.discovery.on('hello', (ssdpDevice: ssdp.Device) => {
             const device = this.mapToDevice(ssdpDevice);
             if (device) {
                 callback(device);
@@ -51,7 +51,7 @@ export class SsdpDiscovery implements IDiscovery {
     }
 
     public onGoodbye(callback: (device: Device) => void) {
-        this.discovery.onGoodbye((ssdpDevice: ssdp.Device) => {
+        this.discovery.on('goodbye', (ssdpDevice: ssdp.Device) => {
             const device = this.mapToDevice(ssdpDevice);
             if (device) {
                 callback(device);
