@@ -1,6 +1,6 @@
-import { Device } from './../';
+import { Device } from '../Device';
 
-export interface IDiscovery {
+export interface IDiscoveryProtocol {
     start(): Promise<void>;
     stop(): Promise<void>;
     search(): Promise<void>;

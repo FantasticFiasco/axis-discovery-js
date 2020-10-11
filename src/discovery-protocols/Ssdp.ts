@@ -1,22 +1,22 @@
 import * as ssdp from 'axis-discovery-ssdp';
 
-import { IDiscovery } from '../shared';
-import { Device } from './..';
-import { log } from './../logging';
+import { IDiscoveryProtocol } from './IDiscoveryProtocol';
+import { Device } from '..';
+import { log } from '../logging';
 
-export class SsdpDiscovery implements IDiscovery {
+export class Ssdp implements IDiscoveryProtocol {
 
     private readonly discovery: ssdp.Discovery;
 
-    constructor(discovery: ssdp.Discovery) {
-        this.discovery = discovery;
+    constructor() {
+        this.discovery = new ssdp.Discovery();
     }
 
     public async start(): Promise<void> {
         try {
             await this.discovery.start();
         } catch (error) {
-            log('SsdpDiscovery#start - unable to start discovery %o', error);
+            log('Ssdp#start - unable to start discovery %o', error);
             throw error;
         }
     }
@@ -25,7 +25,7 @@ export class SsdpDiscovery implements IDiscovery {
         try {
             await this.discovery.stop();
         } catch (error) {
-            log('SsdpDiscovery#stop - unable to stop discovery %o', error);
+            log('Ssdp#stop - unable to stop discovery %o', error);
             throw error;
         }
     }
@@ -34,7 +34,7 @@ export class SsdpDiscovery implements IDiscovery {
         try {
             await this.discovery.search();
         } catch (error) {
-            log('SsdpDiscovery#search - unable to search %o', error);
+            log('Ssdp#search - unable to search %o', error);
             throw error;
         }
     }
@@ -45,7 +45,7 @@ export class SsdpDiscovery implements IDiscovery {
             if (device) {
                 callback(device);
             } else {
-                log('SsdpDiscovery#onHello - unable to map %o', ssdpDevice);
+                log('Ssdp#onHello - unable to map %o', ssdpDevice);
             }
         });
     }
@@ -56,7 +56,7 @@ export class SsdpDiscovery implements IDiscovery {
             if (device) {
                 callback(device);
             } else {
-                log('SsdpDiscovery#onGoodbye - unable to map %o', ssdpDevice);
+                log('Ssdp#onGoodbye - unable to map %o', ssdpDevice);
             }
         });
     }
