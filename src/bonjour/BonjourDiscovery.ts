@@ -49,11 +49,11 @@ export class BonjourDiscovery implements IDiscovery {
     }
 
     public onHello(callback: (device: Device) => void) {
-        this.discovery.onHello((bonjourDevice: bonjour.Device) => callback(this.mapToDevice(bonjourDevice)));
+        this.discovery.on('hello', (bonjourDevice: bonjour.Device) => callback(this.mapToDevice(bonjourDevice)));
     }
 
     public onGoodbye(callback: (device: Device) => void) {
-        this.discovery.onGoodbye((bonjourDevice: bonjour.Device) => callback(this.mapToDevice(bonjourDevice)));
+        this.discovery.on('goodbye', (bonjourDevice: bonjour.Device) => callback(this.mapToDevice(bonjourDevice)));
     }
 
     private mapToDevice(bonjourDevice: bonjour.Device): Device {
