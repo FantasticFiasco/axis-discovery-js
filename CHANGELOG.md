@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [2.0.0] - 2020-10-12
+
 ### :dizzy: Changed
 
 - [BREAKING CHANGE] Changed signature of `Discovery.ctor`
