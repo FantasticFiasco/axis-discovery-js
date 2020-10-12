@@ -1,33 +1,33 @@
-import * as bonjour from 'axis-discovery-bonjour';
-import * as ssdp from 'axis-discovery-ssdp';
-import * as events from 'events';
+import { EventEmitter } from 'events';
 
-import { Device } from './';
-import { BonjourDiscovery } from './bonjour';
+import { Device } from './Device';
+import { Bonjour, IDiscoveryProtocol, Ssdp } from './discovery-protocols';
 import { DeviceCache } from './caches';
 import { log } from './logging';
-import { IDiscovery } from './shared';
-import { SsdpDiscovery } from './ssdp';
+
+/**
+ * Interface describing the supported events of Discovery.
+ */
+interface Events {
+    hello: Device;
+    goodbye: Device
+}
 
 /**
  * Class responsible for discovering Axis cameras on the network.
  */
-export class Discovery {
+export class Discovery implements EventEmitter {
 
-    private readonly discoveries = new Array<IDiscovery>();
-    private readonly eventEmitter = new events.EventEmitter();
-    private readonly cache = new DeviceCache();
+    private readonly eventEmitter = new EventEmitter();
+    private readonly discoveryProtocols: IDiscoveryProtocol[] = [];
+    private readonly deviceCache = new DeviceCache();
 
     /**
      * Initializes a new instance of the class.
-     * @param bonjourDiscovery The Bounjour discovery implemetation. Default
-     * value is an instance of require('axis-discovery-bonjour').Discovery.
-     * @param ssdpDiscovery The SSDP discovery implemetation. Default
-     * value is an instance of require('axis-discovery-ssdp').Discovery.
      */
-    constructor(bonjourDiscovery?: bonjour.Discovery, ssdpDiscovery?: ssdp.Discovery) {
-        this.setup(new BonjourDiscovery(bonjourDiscovery || new bonjour.Discovery()));
-        this.setup(new SsdpDiscovery(ssdpDiscovery || new ssdp.Discovery()));
+    constructor() {
+        this.setup(new Bonjour());
+        this.setup(new Ssdp());
     }
 
     /**
@@ -37,8 +37,8 @@ export class Discovery {
     public async start(): Promise<void> {
         log('Discovery#start');
 
-        for (const discovery of this.discoveries) {
-            await discovery.start();
+        for (const discoveryProtocol of this.discoveryProtocols) {
+            await discoveryProtocol.start();
         }
     }
 
@@ -48,8 +48,8 @@ export class Discovery {
     public async stop(): Promise<void> {
         log('Discovery#stop');
 
-        for (const discovery of this.discoveries) {
-            await discovery.stop();
+        for (const discoveryProtocol of this.discoveryProtocols) {
+            await discoveryProtocol.stop();
         }
     }
 
@@ -59,37 +59,171 @@ export class Discovery {
     public async search(): Promise<void> {
         log('Discovery#search');
 
-        for (const discovery of this.discoveries) {
-            await discovery.search();
+        for (const discoveryProtocol of this.discoveryProtocols) {
+            await discoveryProtocol.search();
         }
     }
 
     /**
-     * Register a callback that is invoked when a device is found on the
-     * network.
+     * Alias for on(eventName, listener).
      */
-    public onHello(callback: (device: Device) => void) {
-        this.eventEmitter.on('hello', (device: Device) => callback(device));
+    addListener<E extends keyof Events>(eventName: E, listener: (arg: Events[E]) => void): this {
+        this.eventEmitter.addListener(eventName, listener);
+        return this;
     }
 
     /**
-     * Register a callback that is invoked when a device intentionally is
-     * disconnecting from the network.
+     * Adds the listener function to the end of the listeners array for the event named eventName.
+     * No checks are made to see if the listener has already been added. Multiple calls passing the
+     * same combination of eventName and listener will result in the listener being added, and
+     * called, multiple times.
+     * @param eventName The name of the event.
+     * @param listener The callback function.
      */
-    public onGoodbye(callback: (device: Device) => void) {
-        this.eventEmitter.on('goodbye', (device: Device) => callback(device));
+    on<E extends keyof Events>(eventName: E, listener: (arg: Events[E]) => void): this {
+        this.eventEmitter.on(eventName, listener);
+        return this;
     }
 
-    private setup(discovery: IDiscovery) {
-        this.discoveries.push(discovery);
+    /**
+     * Adds a one-time listener function for the event named eventName. The next time eventName is
+     * triggered, this listener is removed and then invoked.
+     * @param eventName The name of the event.
+     * @param listener The callback function.
+     */
+    once<E extends keyof Events>(eventName: E, listener: (arg: Events[E]) => void): this {
+        this.eventEmitter.once(eventName, listener);
+        return this;
+    }
 
-        discovery.onHello((device: Device) => {
-            device = this.cache.update(device);
+    /**
+     * Alias for off(eventName, listener).
+     * @param eventName The name of the event.
+     * @param listener The callback function.
+     */
+    removeListener<E extends keyof Events>(eventName: E, listener: (arg: Events[E]) => void): this {
+        this.eventEmitter.removeListener(eventName, listener);
+        return this;
+    }
+
+    /**
+     * Removes the specified listener from the listener array for the event named eventName.
+     * @param eventName The name of the event.
+     * @param listener The callback function.
+     */
+    off<E extends keyof Events>(eventName: E, listener: (arg: Events[E]) => void): this {
+        this.eventEmitter.off(eventName, listener);
+        return this;
+    }
+
+    /**
+     * Removes all listeners, or those of the specified eventName.
+     * @param eventName The name of the event.
+     */
+    removeAllListeners<E extends keyof Events>(eventName?: E): this {
+        this.eventEmitter.removeAllListeners(eventName);
+        return this;
+    }
+
+    /**
+     * By default EventEmitters will print a warning if more than 10 listeners are added for a
+     * particular event. This is a useful default that helps finding memory leaks. The
+     * emitter.setMaxListeners() method allows the limit to be modified for this specific
+     * EventEmitter instance. The value can be set to Infinity (or 0) to indicate an unlimited
+     * number of listeners.
+     */
+    setMaxListeners(n: number): this {
+        this.eventEmitter.setMaxListeners(n);
+        return this;
+    }
+
+    /**
+     * Returns the current max listener value for the EventEmitter which is either set by
+     * emitter.setMaxListeners(n) or defaults to EventEmitter.defaultMaxListeners.
+     */
+    getMaxListeners(): number {
+        return this.eventEmitter.getMaxListeners();
+    }
+
+    /**
+     * Returns a copy of the array of listeners for the event named eventName.
+     * @param eventName The name of the event.
+     */
+    // tslint:disable-next-line:ban-types
+    listeners<E extends keyof Events>(eventName: E): Function[] {
+        return this.eventEmitter.listeners(eventName);
+    }
+
+    /**
+     * Returns a copy of the array of listeners for the event named eventName, including any
+     * wrappers (such as those created by once()).
+     * @param eventName The name of the event.
+     */
+    // tslint:disable-next-line:ban-types
+    rawListeners<E extends keyof Events>(eventName: E): Function[] {
+        return this.eventEmitter.rawListeners(eventName);
+    }
+
+    /**
+     * Synchronously calls each of the listeners registered for the event named eventName, in the
+     * order they were registered, passing the supplied arguments to each.
+     * @param eventName The name of the event.
+     */
+    emit<E extends keyof Events>(eventName: E, args: Events[E]): boolean {
+        return this.eventEmitter.emit(eventName, args);
+    }
+
+    /**
+     * Returns the number of listeners listening to the event named eventName.
+     * @param eventName The name of the event.
+     */
+    listenerCount<E extends keyof Events>(eventName: E): number {
+        return this.eventEmitter.listenerCount(eventName);
+    }
+
+    /**
+     * Adds the listener function to the beginning of the listeners array for the event named
+     * eventName. No checks are made to see if the listener has already been added. Multiple calls
+     * passing the same combination of eventName and listener will result in the listener being
+     * added, and called, multiple times.
+     * @param eventName The name of the event.
+     * @param listener The callback function.
+     */
+    prependListener<E extends keyof Events>(eventName: E, listener: (arg: Events[E]) => void): this {
+        this.eventEmitter.prependListener(eventName, listener);
+        return this;
+    }
+
+    /**
+     * Adds a one-time listener function for the event named eventName to the beginning of the
+     * listeners array. The next time eventName is triggered, this listener is removed, and then
+     * invoked.
+     * @param eventName The name of the event.
+     * @param listener The callback function.
+     */
+    prependOnceListener<E extends keyof Events>(eventName: E, listener: (arg: Events[E]) => void): this {
+        this.eventEmitter.prependOnceListener(eventName, listener);
+        return this;
+    }
+
+    /**
+     * Returns an array listing the events for which the emitter has registered listeners. The
+     * values in the array are strings or Symbols.
+     */
+    eventNames(): (string | symbol)[] {
+        return this.eventEmitter.eventNames();
+    }
+
+    private setup(discoveryProtocol: IDiscoveryProtocol) {
+        this.discoveryProtocols.push(discoveryProtocol);
+
+        discoveryProtocol.onHello((device: Device) => {
+            device = this.deviceCache.update(device);
             this.eventEmitter.emit('hello', device);
         });
 
-        discovery.onGoodbye((device: Device) => {
-            device = this.cache.update(device);
+        discoveryProtocol.onGoodbye((device: Device) => {
+            device = this.deviceCache.update(device);
             this.eventEmitter.emit('goodbye', device);
         });
     }

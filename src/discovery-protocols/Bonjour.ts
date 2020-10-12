@@ -1,15 +1,15 @@
 import * as bonjour from 'axis-discovery-bonjour';
 
-import { IDiscovery } from '../shared';
-import { Device } from './..';
-import { log } from './../logging';
+import { IDiscoveryProtocol } from './IDiscoveryProtocol';
+import { Device } from '../Device';
+import { log } from '../logging';
 
-export class BonjourDiscovery implements IDiscovery {
+export class Bonjour implements IDiscoveryProtocol {
 
     private readonly discovery: bonjour.Discovery;
 
-    constructor(discovery: bonjour.Discovery) {
-        this.discovery = discovery;
+    constructor() {
+        this.discovery = new bonjour.Discovery();
     }
 
     public start(): Promise<void> {
@@ -18,7 +18,7 @@ export class BonjourDiscovery implements IDiscovery {
                 this.discovery.start();
                 resolve();
             } catch (error) {
-                log('BonjourDiscovery#start - unable to start discovery %o', error);
+                log('Bonjour#start - unable to start discovery %o', error);
                 reject(error);
             }
         });
@@ -30,7 +30,7 @@ export class BonjourDiscovery implements IDiscovery {
                 this.discovery.stop();
                 resolve();
             } catch (error) {
-                log('BonjourDiscovery#stop - unable to stop discovery %o', error);
+                log('Bonjour#stop - unable to stop discovery %o', error);
                 reject(error);
             }
         });
@@ -42,18 +42,24 @@ export class BonjourDiscovery implements IDiscovery {
                 this.discovery.search();
                 resolve();
             } catch (error) {
-                log('BonjourDiscovery#search - unable to search %o', error);
+                log('Bonjour#search - unable to search %o', error);
                 reject(error);
             }
         });
     }
 
     public onHello(callback: (device: Device) => void) {
-        this.discovery.on('hello', (bonjourDevice: bonjour.Device) => callback(this.mapToDevice(bonjourDevice)));
+        this.discovery.on('hello', (bonjourDevice: bonjour.Device) =>  {
+            const device = this.mapToDevice(bonjourDevice);
+            callback(device);
+        });
     }
 
     public onGoodbye(callback: (device: Device) => void) {
-        this.discovery.on('goodbye', (bonjourDevice: bonjour.Device) => callback(this.mapToDevice(bonjourDevice)));
+        this.discovery.on('goodbye', (bonjourDevice: bonjour.Device) => {
+            const device = this.mapToDevice(bonjourDevice);
+            callback(device);
+        });
     }
 
     private mapToDevice(bonjourDevice: bonjour.Device): Device {

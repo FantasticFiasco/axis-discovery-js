@@ -1,7 +1,7 @@
 import * as expect from '@fantasticfiasco/expect';
 
 import { log } from '../logging';
-import { Device } from './..';
+import { Device } from '../Device';
 
 export class DeviceCache {
 
