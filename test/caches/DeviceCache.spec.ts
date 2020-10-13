@@ -1,14 +1,8 @@
 import { DeviceCache } from './../../src/caches/DeviceCache';
-import {
-    DEVICE_WITH_INFORMATION,
-    DEVICE_WITHOUT_INFORMATION,
-    DEVICE_WITHOUT_MAC_ADDRESS
-} from './DeviceCache.mock';
+import { DEVICE_WITHOUT_INFORMATION, DEVICE_WITHOUT_MAC_ADDRESS, DEVICE_WITH_INFORMATION } from './DeviceCache.mock';
 
 describe('DeviceCache', () => {
-
     describe('#update', () => {
-
         test('should return device when cache miss', () => {
             // Arrange
             const subject = new DeviceCache();

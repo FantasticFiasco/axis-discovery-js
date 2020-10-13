@@ -1,8 +1,7 @@
 import { EventEmitter } from 'events';
-
+import { DeviceCache } from './caches';
 import { Device } from './Device';
 import { Bonjour, IDiscoveryProtocol, Ssdp } from './discovery-protocols';
-import { DeviceCache } from './caches';
 import { log } from './logging';
 
 /**
@@ -10,14 +9,13 @@ import { log } from './logging';
  */
 interface Events {
     hello: Device;
-    goodbye: Device
+    goodbye: Device;
 }
 
 /**
  * Class responsible for discovering Axis cameras on the network.
  */
 export class Discovery implements EventEmitter {
-
     private readonly eventEmitter = new EventEmitter();
     private readonly discoveryProtocols: IDiscoveryProtocol[] = [];
     private readonly deviceCache = new DeviceCache();

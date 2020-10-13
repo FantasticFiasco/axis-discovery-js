@@ -1,10 +1,8 @@
 import * as expect from '@fantasticfiasco/expect';
-
-import { log } from '../logging';
 import { Device } from '../Device';
+import { log } from '../logging';
 
 export class DeviceCache {
-
     private readonly devices: { [macAddress: string]: Device } = {};
 
     constructor(...devices: Device[]) {

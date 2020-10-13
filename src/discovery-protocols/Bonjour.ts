@@ -1,11 +1,9 @@
 import * as bonjour from 'axis-discovery-bonjour';
-
-import { IDiscoveryProtocol } from './IDiscoveryProtocol';
 import { Device } from '../Device';
 import { log } from '../logging';
+import { IDiscoveryProtocol } from './IDiscoveryProtocol';
 
 export class Bonjour implements IDiscoveryProtocol {
-
     private readonly discovery: bonjour.Discovery;
 
     constructor() {
@@ -49,7 +47,7 @@ export class Bonjour implements IDiscoveryProtocol {
     }
 
     public onHello(callback: (device: Device) => void) {
-        this.discovery.on('hello', (bonjourDevice: bonjour.Device) =>  {
+        this.discovery.on('hello', (bonjourDevice: bonjour.Device) => {
             const device = this.mapToDevice(bonjourDevice);
             callback(device);
         });
@@ -72,6 +70,7 @@ export class Bonjour implements IDiscoveryProtocol {
             undefined,
             undefined,
             undefined,
-            undefined);
+            undefined
+        );
     }
 }

@@ -1,11 +1,9 @@
 import * as ssdp from 'axis-discovery-ssdp';
-
-import { IDiscoveryProtocol } from './IDiscoveryProtocol';
 import { Device } from '..';
 import { log } from '../logging';
+import { IDiscoveryProtocol } from './IDiscoveryProtocol';
 
 export class Ssdp implements IDiscoveryProtocol {
-
     private readonly discovery: ssdp.Discovery;
 
     constructor() {
@@ -75,6 +73,7 @@ export class Ssdp implements IDiscoveryProtocol {
             ssdpDevice.modelName,
             ssdpDevice.modelDescription,
             ssdpDevice.modelNumber,
-            ssdpDevice.presentationURL);
+            ssdpDevice.presentationURL
+        );
     }
 }
